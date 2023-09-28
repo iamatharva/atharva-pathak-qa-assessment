@@ -1,0 +1,15 @@
+version: '3.3'
+services:
+  hardhat-app:
+    build:
+      context: .
+    volumes:
+      - ./scripts:/app/scripts
+    environment:
+      ALCHEMY_API_KEY: ${ALCHEMY_API_KEY}
+      PRIVATE_KEY: ${PRIVATE_KEY}
+    networks:
+      - hardhat-network
+
+networks:
+  hardhat-network:

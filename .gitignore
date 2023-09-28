@@ -1,0 +1,8 @@
+node_modules
+output.json
+deployment.json
+
+# Hardhat files
+cache
+artifacts
+
