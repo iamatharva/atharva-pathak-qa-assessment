@@ -2,7 +2,6 @@ const { ethers } = require('hardhat');
 const fs = require('fs');
 
 async function main() {
-  await ethers.getSigners();
   const deploymentInfo = JSON.parse(fs.readFileSync('deployment.json'));
   const contractAddress = deploymentInfo.contractAddress;
   const GetterSetter = await ethers.getContractFactory('GetterSetter');
@@ -10,6 +9,7 @@ async function main() {
   const newValue = 123;
   const tx = await getterSetter.setUint256(newValue);
   await tx.wait();
+  console.log('New value set in the contract:', newValue);
 }
 
 main()

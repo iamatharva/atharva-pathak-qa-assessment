@@ -1,7 +1,7 @@
 #!/bin/bash
 npx hardhat compile
 
-CONTRACT_ADDRESS=$(npx hardhat run scripts/deploy.js --network mumbai)
+CONTRACT_ADDRESS=$(npx hardhat run scripts/deploy.js --network mumbai | awk '/GetterSetter deployed to address:/ {print $NF}')
 
 npx hardhat run scripts/set_value.js --network mumbai $CONTRACT_ADDRESS
 
